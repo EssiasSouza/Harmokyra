@@ -1,0 +1,530 @@
+{
+  "schema_version": "1.1.0",
+
+  "application": {
+    "language": "pt-BR",
+    "theme": "dark",
+    "startup_preset": "default",
+    "processing_mode": "realtime",
+    "quality_profile": "balanced",
+    "bypass": false
+  },
+
+  "audio": {
+    "input": {
+      "device_id": null,
+      "driver": "ASIO",
+      "channel": 1,
+      "sample_rate_hz": 48000,
+      "buffer_size_samples": 128,
+      "input_gain_db": 0.0,
+      "input_trim_db": 0.0,
+      "high_pass_filter": {
+        "enabled": false,
+        "cutoff_hz": 80,
+        "slope_db_oct": 12
+      },
+      "noise_gate": {
+        "enabled": false,
+        "threshold_db": -50.0,
+        "attack_ms": 5.0,
+        "hold_ms": 30.0,
+        "release_ms": 100.0
+      }
+    },
+
+    "output": {
+      "device_id": null,
+      "driver": "ASIO",
+      "channels": [1, 2],
+      "sample_rate_hz": 48000,
+      "master_gain_db": 0.0,
+      "master_pan": 0.0,
+      "limiter": {
+        "enabled": true,
+        "ceiling_db": -1.0,
+        "release_ms": 50.0
+      }
+    },
+
+    "routing": {
+      "dry_voice_enabled": true,
+      "harmony_bus_enabled": true,
+      "effects_bus_enabled": true,
+      "monitoring_enabled": true,
+      "direct_monitoring": false
+    },
+
+    "latency": {
+      "target_ms": 10.0,
+      "processing_mode": "low_latency",
+      "maximum_allowed_ms": 30.0,
+      "automatic_buffer_adjustment": false
+    }
+  },
+
+  "music": {
+    "harmony_mode": "key",
+    "key": "C",
+    "scale": "major",
+    "chromatic_mode": false,
+    "reference_frequency_hz": 440.0,
+
+    "pitch_detection": {
+      "algorithm": "yin",
+      "minimum_frequency_hz": 70.0,
+      "maximum_frequency_hz": 1000.0,
+      "confidence_threshold": 0.8,
+      "smoothing_ms": 30.0,
+      "note_transition_mode": "smooth",
+      "note_on_threshold": 0.65,
+      "note_off_threshold": 0.4,
+      "vibrato_tracking": true,
+      "glide_tracking": true
+    },
+
+    "chord_input": {
+      "enabled": false,
+      "source": "midi",
+      "midi_device_id": null,
+      "midi_channel": 1,
+      "chord_detection": "midi_notes",
+      "fallback_mode": "key"
+    },
+
+    "voicing": {
+      "mode": "automatic",
+      "allow_voice_crossing": false,
+      "keep_voices_in_range": true,
+      "minimum_voice_separation_semitones": 3,
+      "maximum_voice_separation_semitones": 24,
+      "voice_leading": "smooth",
+      "inversion": "automatic",
+      "octave_correction": true
+    }
+  },
+
+  "voices": {
+    "lead": {
+      "enabled": true,
+      "role": "lead",
+      "gain_db": 0.0,
+      "pan": 0.0,
+
+      "pitch_correction": {
+        "enabled": false,
+        "strength": 0.5,
+        "speed_ms": 30.0,
+        "scale_aware": true
+      },
+
+      "formant": {
+        "enabled": false,
+        "shift_semitones": 0.0,
+        "preservation": 1.0
+      },
+
+      "dynamics": {
+        "gain_db": 0.0,
+        "compressor": {
+          "enabled": false,
+          "threshold_db": -18.0,
+          "ratio": 2.0,
+          "attack_ms": 10.0,
+          "release_ms": 100.0,
+          "makeup_gain_db": 0.0
+        }
+      },
+
+      "effects": {
+        "reverb_send": 0.1,
+        "delay_send": 0.0,
+        "chorus_send": 0.0
+      }
+    },
+
+    "harmonies": {
+      "harmony_1": {
+        "enabled": true,
+        "name": "Harmony High",
+        "role": "harmony",
+        "voice_character": "feminine",
+
+        "harmony": {
+          "interval_type": "diatonic",
+          "interval": "third",
+          "direction": "above",
+          "semitone_offset": null,
+          "octave_offset": 0,
+          "mode": "key_aware",
+          "preferred_chord_tone": "third",
+          "fallback_interval": "third"
+        },
+
+        "pitch_processing": {
+          "algorithm": "formant_preserving",
+          "pitch_shift_semitones": 0.0,
+          "pitch_shift_cents": 0.0,
+          "correction_strength": 0.85,
+          "transition_smoothing_ms": 25.0,
+          "preserve_vibrato": true,
+          "vibrato_amount": 0.9
+        },
+
+        "formant": {
+          "enabled": true,
+          "shift_semitones": 1.0,
+          "preservation": 0.8,
+          "spectral_envelope_strength": 0.7
+        },
+
+        "humanization": {
+          "enabled": true,
+
+          "timing": {
+            "base_delay_ms": 18.0,
+            "random_delay_ms": 5.0,
+            "note_onset_variation_ms": 8.0,
+            "note_release_variation_ms": 15.0,
+            "random_seed": null
+          },
+
+          "pitch": {
+            "static_detune_cents": 0.0,
+            "random_detune_cents": 3.0,
+            "note_intonation_variation_cents": 5.0,
+            "drift_amount_cents": 2.0,
+            "drift_speed": 0.2
+          },
+
+          "vibrato": {
+            "enabled": true,
+            "rate_hz": 5.2,
+            "depth_cents": 18.0,
+            "onset_delay_ms": 120.0,
+            "rate_variation": 0.1,
+            "depth_variation": 0.15
+          },
+
+          "dynamics": {
+            "gain_variation_db": 1.5,
+            "phrase_gain_variation_db": 1.0,
+            "attack_variation": 0.15,
+            "release_variation": 0.15,
+            "velocity_response": 0.8
+          },
+
+          "articulation": {
+            "enabled": true,
+            "attack_ms": 10.0,
+            "release_ms": 20.0,
+            "legato_amount": 0.7,
+            "consonant_preservation": 0.9,
+            "breath_variation": 0.1
+          }
+        },
+
+        "dynamics": {
+          "gain_db": -6.0,
+          "pan": -0.35,
+
+          "compressor": {
+            "enabled": false,
+            "threshold_db": -20.0,
+            "ratio": 2.0,
+            "attack_ms": 10.0,
+            "release_ms": 100.0,
+            "makeup_gain_db": 0.0
+          },
+
+          "expression": {
+            "follow_lead_dynamics": true,
+            "follow_strength": 0.7,
+            "independent_gain_envelope": true,
+            "phrase_level_variation": 0.15
+          }
+        },
+
+        "effects": {
+          "reverb_send": 0.25,
+          "delay_send": 0.0,
+          "chorus_send": 0.1,
+          "saturation_amount": 0.0,
+          "stereo_width": 0.7
+        },
+
+        "voice_range": {
+          "minimum_note": "G3",
+          "maximum_note": "C6",
+          "out_of_range_behavior": "octave_adjust"
+        }
+      },
+
+      "harmony_2": {
+        "enabled": true,
+        "name": "Harmony Low",
+        "role": "harmony",
+        "voice_character": "masculine",
+
+        "harmony": {
+          "interval_type": "diatonic",
+          "interval": "fifth",
+          "direction": "above",
+          "semitone_offset": null,
+          "octave_offset": 0,
+          "mode": "key_aware",
+          "preferred_chord_tone": "fifth",
+          "fallback_interval": "fifth"
+        },
+
+        "pitch_processing": {
+          "algorithm": "formant_preserving",
+          "pitch_shift_semitones": 0.0,
+          "pitch_shift_cents": 0.0,
+          "correction_strength": 0.9,
+          "transition_smoothing_ms": 30.0,
+          "preserve_vibrato": true,
+          "vibrato_amount": 0.7
+        },
+
+        "formant": {
+          "enabled": true,
+          "shift_semitones": -1.5,
+          "preservation": 0.85,
+          "spectral_envelope_strength": 0.75
+        },
+
+        "humanization": {
+          "enabled": true,
+
+          "timing": {
+            "base_delay_ms": 31.0,
+            "random_delay_ms": 7.0,
+            "note_onset_variation_ms": 12.0,
+            "note_release_variation_ms": 18.0,
+            "random_seed": null
+          },
+
+          "pitch": {
+            "static_detune_cents": 0.0,
+            "random_detune_cents": 4.0,
+            "note_intonation_variation_cents": 6.0,
+            "drift_amount_cents": 3.0,
+            "drift_speed": 0.15
+          },
+
+          "vibrato": {
+            "enabled": true,
+            "rate_hz": 4.7,
+            "depth_cents": 14.0,
+            "onset_delay_ms": 160.0,
+            "rate_variation": 0.12,
+            "depth_variation": 0.2
+          },
+
+          "dynamics": {
+            "gain_variation_db": 2.0,
+            "phrase_gain_variation_db": 1.5,
+            "attack_variation": 0.2,
+            "release_variation": 0.2,
+            "velocity_response": 0.65
+          },
+
+          "articulation": {
+            "enabled": true,
+            "attack_ms": 15.0,
+            "release_ms": 25.0,
+            "legato_amount": 0.65,
+            "consonant_preservation": 0.85,
+            "breath_variation": 0.15
+          }
+        },
+
+        "dynamics": {
+          "gain_db": -8.0,
+          "pan": 0.35,
+
+          "compressor": {
+            "enabled": false,
+            "threshold_db": -20.0,
+            "ratio": 2.0,
+            "attack_ms": 10.0,
+            "release_ms": 120.0,
+            "makeup_gain_db": 0.0
+          },
+
+          "expression": {
+            "follow_lead_dynamics": true,
+            "follow_strength": 0.6,
+            "independent_gain_envelope": true,
+            "phrase_level_variation": 0.2
+          }
+        },
+
+        "effects": {
+          "reverb_send": 0.3,
+          "delay_send": 0.0,
+          "chorus_send": 0.15,
+          "saturation_amount": 0.0,
+          "stereo_width": 0.8
+        },
+
+        "voice_range": {
+          "minimum_note": "C3",
+          "maximum_note": "G5",
+          "out_of_range_behavior": "octave_adjust"
+        }
+      }
+    }
+  },
+
+  "stage_sets": {
+    "active_stage_set_id": "stage_set_1",
+
+    "stage_set_1": {
+      "name": "Default Stage Set",
+      "description": "Primary performance configuration",
+      "enabled": true,
+
+      "slots": {
+        "1": "harmony_2",
+        "2": "harmony_1"
+      }
+    },
+
+    "stage_set_2": {
+      "name": "Alternative Stage Set",
+      "description": "Alternative harmony order",
+      "enabled": true,
+
+      "slots": {
+        "1": "harmony_1",
+        "2": "harmony_2"
+      }
+    }
+  },
+
+  "effects": {
+    "equalizer": {
+      "enabled": false,
+      "high_pass_hz": 80,
+      "low_shelf_db": 0.0,
+      "low_mid_frequency_hz": 250,
+      "low_mid_gain_db": 0.0,
+      "presence_frequency_hz": 3500,
+      "presence_gain_db": 0.0,
+      "high_shelf_db": 0.0
+    },
+
+    "reverb": {
+      "enabled": true,
+      "type": "room",
+      "mix": 0.15,
+      "decay_seconds": 1.2,
+      "pre_delay_ms": 20.0,
+      "damping": 0.5,
+      "stereo_width": 0.8
+    },
+
+    "delay": {
+      "enabled": false,
+      "time_ms": 250.0,
+      "feedback": 0.15,
+      "mix": 0.1,
+      "sync_to_tempo": false,
+      "tempo_bpm": 120.0
+    },
+
+    "chorus": {
+      "enabled": false,
+      "rate_hz": 0.8,
+      "depth": 0.2,
+      "mix": 0.1
+    },
+
+    "de_esser": {
+      "enabled": false,
+      "frequency_hz": 6500,
+      "threshold_db": -25.0,
+      "reduction_db": 4.0
+    }
+  },
+
+  "humanization_global": {
+    "enabled": true,
+    "amount": 0.7,
+    "timing_amount": 0.6,
+    "pitch_amount": 0.4,
+    "dynamics_amount": 0.6,
+    "articulation_amount": 0.5,
+    "randomization_mode": "correlated_per_note",
+    "variation_limits_enabled": true,
+    "preserve_musical_alignment": true,
+    "avoid_audible_flamming": true
+  },
+
+  "midi": {
+    "enabled": false,
+    "input_device_id": null,
+    "input_channel": 1,
+    "program_change_enabled": false,
+    "control_change_enabled": true,
+    "clock_sync_enabled": false,
+
+    "mappings": {
+      "master_bypass": 64,
+      "harmony_1_enable": 65,
+      "harmony_2_enable": 66,
+      "preset_next": 67,
+      "preset_previous": 68,
+      "master_volume": 7
+    }
+  },
+
+  "presets": {
+    "active_preset_id": "default",
+    "auto_save": false,
+    "preserve_random_seed": false,
+
+    "items": [
+      {
+        "id": "default",
+        "name": "Default",
+        "description": "Basic vocal harmonization",
+        "tags": [
+          "general",
+          "live"
+        ]
+      }
+    ]
+  },
+
+  "performance": {
+    "cpu_limit_percent": 80,
+    "multithreading_enabled": true,
+    "quality_mode": "balanced",
+    "oversampling": 1,
+    "dropout_detection": true,
+    "telemetry_enabled": false
+  },
+
+  "diagnostics": {
+    "show_input_level": true,
+    "show_output_level": true,
+    "show_detected_pitch": true,
+    "show_detected_note": true,
+    "show_latency": true,
+    "show_cpu_usage": true,
+    "log_level": "warning",
+    "record_debug_audio": false
+  }
+}
+
+
+
+SrBy9zveeEsmuclO77h6z9q6HTZhj3T9
+O2)ok8JP)o+(4=2
+
+
+
+kong-db.staging.gringo.com.vc
